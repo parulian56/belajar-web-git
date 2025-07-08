@@ -1,74 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Audio Player - Melodic Hearts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<audio controls>
-  <source src="sfx1.mp3" type="audio/mpeg">
-  Browser kamu tidak mendukung pemutar audio.
-</audio>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 25%, #ffa8a8 50%, #ff8e8e 75%, #ff6b6b 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
 
+        /* Floating hearts background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-<!-- <audio> Element
-To play an audio file in HTML, use the <audio> element:
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 20px;
+            animation: floatHeart 8s ease-in-out infinite;
+        }
 
-Example
-<audio controls>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
+        .heart:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; font-size: 15px; }
+        .heart:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; font-size: 25px; }
+        .heart:nth-child(3) { left: 60%; top: 40%; animation-delay: 2s; font-size: 18px; }
+        .heart:nth-child(4) { left: 80%; top: 70%; animation-delay: 3s; font-size: 22px; }
+        .heart:nth-child(5) { left: 40%; top: 10%; animation-delay: 4s; font-size: 16px; }
+        .heart:nth-child(6) { left: 90%; top: 30%; animation-delay: 5s; font-size: 20px; }
+        .heart:nth-child(7) { left: 5%; top: 60%; animation-delay: 6s; font-size: 19px; }
+        .heart:nth-child(8) { left: 70%; top: 85%; animation-delay: 7s; font-size: 17px; }
 
+        @keyframes floatHeart {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1); 
+                opacity: 0.3; 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg) scale(1.2); 
+                opacity: 0.8; 
+            }
+        }
 
-HTML Audio - How It Works
-The controls attribute adds audio controls, like play, pause, and volume.
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-The <source> element allows you to specify alternative audio files which the browser may choose from. The browser will use the first recognized format.
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
 
-The text between the <audio> and </audio> tags will only be displayed in browsers that do not support the <audio> element.
+        .main-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
 
-HTML <audio> Autoplay
-To start an audio file automatically, use the autoplay attribute:
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
 
-Example
-<audio controls autoplay>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
 
-Add muted after autoplay to let your audio file start playing automatically (but muted):
+        /* Audio player section */
+        .audio-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
 
-Example
-<audio controls autoplay muted>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="horse.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
+        .audio-title {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
 
-HTML Audio Formats
-There are three supported audio formats: MP3, WAV, and OGG. The browser support for the different formats is: 
+        .custom-audio-player {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
 
-Browser	MP3	WAV	OGG
-Edge/IE	YES	YES*	YES*
-Chrome	YES	YES	YES
-Firefox	YES	YES	YES
-Safari	YES	YES	NO
-Opera	YES	YES	YES
-*From Edge 79
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
 
-HTML Audio - Media Types
-File Format	Media Type
-MP3	audio/mpeg
-OGG	audio/ogg
-WAV	audio/wav
+        .play-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border: none;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
 
-HTML Audio - Methods, Properties, and Events
-The HTML DOM defines methods, properties, and events for the <audio> element.
+        .play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+        }
 
-This allows you to load, play, and pause audios, as well as set duration and volume.
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-There are also DOM events that can notify you when an audio begins to play, is paused, etc.
+        .volume-slider {
+            width: 100px;
+            height: 5px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            -webkit-appearance: none;
+        }
 
-For a full DOM reference, go to our HTML Audio/Video DOM Reference.
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-HTML Audio Tags
-Tag	Description
-<audio>	Defines sound content
-<source>	Defines multiple media resources for media elements, such as <video> and <audio> -->
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Audio features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Love quotes section */
+        .love-quotes {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 1rem;
+            animation: fadeInOut 5s ease-in-out infinite;
+        }
+
+        .quote-author {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .audio-section {
+                padding: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💓</div>
+        <div class="heart">💝</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">💕 Melodic Hearts 💕</h1>
+            <p class="subtitle">Where Love Meets Music</p>
+        </div>
+
+        <div class="audio-section">
+            <h2 class="audio-title">🎵 Love Audio Player 🎵</h2>
+            
+            <div class="custom-audio-player">
+                <audio id="audioPlayer" preload="metadata">
+                    <source src="sfx1.mp3" type="audio/mpeg">
+                    <source src="love-song.ogg" type="audio/ogg">
+                    Browser kamu tidak mendukung pemutar audio.
+                </audio>
+                
+                <div class="audio-controls">
+                    <button class="play-btn" id="playBtn">▶️</button>
+                    <div class="volume-control">
+                        <span>🔊</span>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+                </div>
+                
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            
+            <p style="color: #666; text-align: center; font-style: italic;">
+                🎶 Putar musik cinta untuk pengalaman yang lebih romantis 🎶
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3 class="feature-title">Multiple Formats</h3>
+                <p class="feature-description">Mendukung MP3, WAV, dan OGG untuk kompatibilitas terbaik di semua browser</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3 class="feature-title">Interactive Controls</h3>
+                <p class="feature-description">Kontrol play/pause, volume, dan progress bar yang responsif dan mudah digunakan</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💖</div>
+                <h3 class="feature-title">Romantic Design</h3>
+                <p class="feature-description">Desain yang penuh cinta dengan animasi heart yang indah dan warna romantis</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Responsive</h3>
+                <p class="feature-description">Tampilan yang sempurna di semua perangkat, dari desktop hingga mobile</p>
+            </div>
+        </div>
+
+        <div class="love-quotes">
+            <p class="quote-text" id="quoteText">
+                "Music is the language of the heart, and love is its most beautiful song."
+            </p>
+            <p class="quote-author">- Anonymous</p>
+        </div>
+    </div>
+
+    <script>
+        // Audio player functionality
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+
+        // Play/Pause functionality
+        playBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playBtn.textContent = '⏸️';
+            } else {
+                audioPlayer.pause();
+                playBtn.textContent = '▶️';
+            }
+        });
+
+        // Volume control
+        volumeSlider.addEventListener('input', () => {
+            audioPlayer.volume = volumeSlider.value;
+        });
+
+        // Progress bar update
+        audioPlayer.addEventListener('timeupdate', () => {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressFill.style.width = progress + '%';
+            
+            // Update time display
+            currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+        });
+
+        // Duration display
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            durationDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+
+        // Progress bar click
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = clickX / width;
+            audioPlayer.currentTime = percentage * audioPlayer.duration;
+        });
+
+        // Format time helper
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        // Audio ended event
+        audioPlayer.addEventListener('ended', () => {
+            playBtn.textContent = '▶️';
+            progressFill.style.width = '0%';
+        });
+
+        // Love quotes rotation
+        const quotes = [
+            "Music is the language of the heart, and love is its most beautiful song.",
+            "In music, we find the rhythm of our hearts beating as one.",
+            "Love is a melody that plays eternally in the soul.",
+            "The most beautiful music is the sound of two hearts in harmony.",
+            "Music has the power to heal hearts and bring souls together."
+        ];
+
+        let currentQuoteIndex = 0;
+        const quoteText = document.getElementById('quoteText');
+
+        setInterval(() => {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            quoteText.style.opacity = '0';
+            setTimeout(() => {
+                quoteText.textContent = quotes[currentQuoteIndex];
+                quoteText.style.opacity = '1';
+            }, 500);
+        }, 4000);
+
+        // Heart animation on audio play
+        audioPlayer.addEventListener('play', () => {
+            document.body.style.animation = 'pulse 2s ease-in-out infinite';
+        });
+
+        audioPlayer.addEventListener('pause', () => {
+            document.body.style.animation = 'none';
+        });
+
+        // Initialize volume
+        audioPlayer.volume = 0.5;
+    </script>
+</body>
+</html>
