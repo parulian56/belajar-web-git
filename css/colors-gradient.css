@@ -1,0 +1,34 @@
+/* CSS Linear Gradients
+To create a linear gradient you must define at least two color stops. Color stops are the colors you want to render smooth transitions among. You can also set a starting point and a direction (or an angle) along with the gradient effect.
+
+Syntax
+background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+Direction - Top to Bottom (this is default)
+
+The following example shows a linear gradient that starts at the top. It starts red, transitioning to yellow:
+
+top to bottom (default)
+Example
+#grad {
+  background-image: linear-gradient(red, yellow);
+}
+Direction - Left to Right
+
+The following example shows a linear gradient that starts from the left. It starts red, transitioning to yellow:
+
+left to right
+Example
+#grad {
+  background-image: linear-gradient(to right, red , yellow);
+}
+Direction - Diagonal
+
+You can make a gradient diagonally by specifying both the horizontal and vertical starting positions.
+
+The following example shows a linear gradient that starts at top left (and goes to bottom right). It starts red, transitioning to yellow:
+
+top left to bottom right
+Example
+#grad {
+  background-image: linear-gradient(to bottom right, red, yellow);
+} */

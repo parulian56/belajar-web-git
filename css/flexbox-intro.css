@@ -1,0 +1,34 @@
+/* CSS Flexible Box Layout Module
+Before the Flexible Box Layout module, there were four layout modes:
+
+Block, for sections in a webpage
+Inline, for text
+Table, for two-dimensional table data
+Positioned, for explicit position of an element
+CSS flexbox is supported in all modern browsers.
+
+CSS Flexbox Components
+A flexbox always consists of:
+
+a Flex Container - the parent (container) <div> element
+Flex Items - the items inside the container <div>
+ADVERTISEMENT
+
+A Flex Container with Three Flex Items
+To start using CSS Flexbox, you need to first define a flex container.
+
+The flex container becomes flexible by setting the display property to flex.
+
+1
+2
+3
+The element above represents a flex container (the blue area) with three flex items.
+
+Example
+A flex container with three flex items:
+
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div> */

@@ -1,0 +1,141 @@
+/* CSS @property Rule
+The @property rule is used to define custom CSS properties directly in the stylesheet without having to run any JavaScript.
+
+The @property rule has data type checking and constraining, sets default values, and defines whether the property can inherit values or not.
+
+Example of defining a custom property:
+
+@property --myColor {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: lightgray;
+}
+The definition above says that --myColor is a color property, it can inherit values from parent elements, and its default value is lightgray.
+
+To use the custom property in CSS, we use the var() function:
+
+body {
+  background-color: var(--myColor);
+}
+The benefits of using @property:
+
+Type checking: You must specify the data type of the custom property, such as <number>, <color>, <length>, etc. This prevents errors and ensures that custom properties are used correctly
+Set default value: You set a default value for the custom property. This ensures that if an invalid value is assigned later, the browser uses the defined fallback value
+Set inheritance behavior: You must specify whether the custom property will, by default, inherit values from its parent elements or not
+Browser Support
+The numbers in the table specifies the first browser version that fully supports the rule.
+
+Property					
+@property	85	85	128	16.4	71
+Simple @property Example
+The following example defines two custom properties: my-bg-color and my-txt-color. Then, the div uses the custom properties in background-color and color:
+
+Example
+@property --my-bg-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: lightgray;
+}
+
+@property --my-txt-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: darkblue;
+}
+
+div {
+  width: 300px;
+  height: 150px;
+  padding: 15px;
+  background-color: var(--my-bg-color);
+  color: var(--my-txt-color);
+}
+
+ADVERTISEMENT
+
+Another @property Example
+In the following example we use the default custom property on the <div> element. Then we override the custom property in class .fresh and class .nature (by setting some other colors), and it works perfectly fine:
+
+Example
+@property --my-bg-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: lightgray;
+}
+
+div {
+  width: 300px;
+  height: 150px;
+  padding: 15px;
+  background-color: var(--my-bg-color);
+}
+
+.fresh {
+  --my-bg-color: #ff6347;
+}
+
+.nature {
+  --my-bg-color: rgb(120, 180, 30);
+}
+
+Avoid Error with Type Checking and Fallback Value
+In the following example we set the custom property in class .nature to an integer. This is not valid, and the browser will use the fallback color, which is defined in the initial-value property (lightgray):
+
+Example
+@property --my-bg-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: lightgray;
+}
+
+div {
+  width: 300px;
+  height: 150px;
+  padding: 15px;
+  background-color: var(--my-bg-color);
+}
+
+.fresh {
+  --my-bg-color: #ff6347;
+}
+
+.nature {
+  --my-bg-color: 2;
+}
+
+Use of the inherits Value
+In the following example we will set the inherits value to false. This means that the custom property WILL NOT inherit values from its parent elements. Look at the result:
+
+Example
+@property --my-bg-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: lightgray;
+}
+
+The next example sets the inherits value to true. This means that the custom property WILL inherit values from its parent elements. Look at the result:
+
+Example
+@property --my-bg-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: lightgray;
+}
+
+Create Smooth Animation with @property
+A complete new opportunity you can achieve with the @property rule, is to animate something that could not be animated before: Gradients. Look at the following example:
+
+Example
+Specify two custom properties for a gradient:
+
+@property --startColor {
+  syntax: "<color>";
+  initial-value: #EADEDB;
+  inherits: false;
+}
+
+@property --endColor {
+  syntax: "<color>";
+  initial-value: #BC70A4;
+  inherits: false;
+} */
