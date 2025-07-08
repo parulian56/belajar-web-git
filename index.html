@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HTML Learning Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,119 +12,268 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #667eea, #764ba2);
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #000000 100%);
+      color: #ffffff;
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Floating shapes dengan efek hitam putih */
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      animation: float 8s ease-in-out infinite;
+      backdrop-filter: blur(5px);
+    }
+
+    .shape:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 70%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .shape:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.6;
+      }
     }
 
     .container {
-      max-width: 1200px;
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 2rem;
     }
 
-    header.header {
+    /* Header styling */
+    .header {
       text-align: center;
       margin-bottom: 3rem;
-      animation: fadeInUp 1s ease;
+      padding: 2rem 0;
+      position: relative;
     }
 
-    header h1 {
-      font-size: 3.2rem;
-      color: #fff;
-      font-weight: 800;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffffff, transparent);
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    header p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.9);
-      font-weight: 400;
-      margin-top: 0.5rem;
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
     }
 
+    .header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ffffff, #cccccc, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.02em;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* Search container */
     .search-container {
-      max-width: 500px;
-      margin: 0 auto 2rem auto;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
 
     .search-input {
       width: 100%;
+      max-width: 500px;
       padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
       border-radius: 50px;
-      border: none;
+      color: #ffffff;
       font-size: 1rem;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: 0.3s ease;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
 
     .search-input:focus {
       outline: none;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
+    .search-input::placeholder {
+      color: #aaaaaa;
+    }
+
+    /* Cards grid */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
+      margin-top: 2rem;
     }
 
     .card {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       padding: 2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       text-decoration: none;
       color: inherit;
-      transition: all 0.3s ease;
-      animation: fadeInUp 1s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .card:hover::before {
+      left: 100%;
     }
 
     .card:hover {
       transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.1);
     }
 
     .card-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      font-size: 1.5rem;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      display: block;
+      filter: grayscale(100%) contrast(200%);
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+      filter: grayscale(0%) contrast(100%);
+      opacity: 1;
+      transform: scale(1.1);
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: 600;
-      color: #2d3748;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+      letter-spacing: 0.02em;
     }
 
     .card-description {
-      color: #4a5568;
+      color: #cccccc;
+      line-height: 1.6;
       font-size: 0.95rem;
-      line-height: 1.5;
+      font-weight: 300;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      color: #eee;
-      font-size: 0.85rem;
-      margin-top: 3rem;
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .header {
+        margin-bottom: 2rem;
+      }
     }
 
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(45deg, #666666, #ffffff);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(45deg, #ffffff, #cccccc);
+    }
+
+    /* Loading animation */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
@@ -133,18 +281,43 @@
       }
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    .card {
+      animation: fadeInUp 0.6s ease-out;
+    }
 
-      .card {
-        padding: 1.5rem;
-      }
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    .card:nth-child(9) { animation-delay: 0.9s; }
+    .card:nth-child(10) { animation-delay: 1.0s; }
+
+    /* Tambahan efek visual */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
     }
   </style>
 </head>
 <body>
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
 
   <div class="container">
     <header class="header">
@@ -153,53 +326,165 @@
     </header>
 
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Cari topik HTML..." id="searchInput">
+      <input type="text" class="search-input" placeholder="Cari topik HTML..." id="searchInput" />
     </div>
 
     <div class="cards-grid" id="cardsGrid">
-      <!-- Semua card kamu disini -->
-      <!-- Contoh -->
       <a href="html/APIs.html" class="card">
         <div class="card-icon">🔌</div>
         <div class="card-title">HTML APIs</div>
         <div class="card-description">Pelajari berbagai API HTML5 untuk membuat aplikasi web yang interaktif</div>
       </a>
-
       <a href="html/attribute.html" class="card">
         <div class="card-icon">📝</div>
         <div class="card-title">HTML Attributes</div>
         <div class="card-description">Memahami atribut HTML untuk mengontrol perilaku elemen</div>
       </a>
-
       <a href="html/audio.html" class="card">
         <div class="card-icon">🎵</div>
         <div class="card-title">HTML Audio</div>
         <div class="card-description">Implementasi audio dalam halaman web dengan kontrol yang lengkap</div>
       </a>
-
-      <!-- Tempel card lainnya dari kode kamu -->
-      <!-- ... -->
+      <a href="html/basic.html" class="card">
+        <div class="card-icon">📚</div>
+        <div class="card-title">HTML Basics</div>
+        <div class="card-description">Dasar-dasar HTML untuk pemula yang ingin memulai journey web development</div>
+      </a>
+      <a href="html/blockandinline.html" class="card">
+        <div class="card-icon">🧱</div>
+        <div class="card-title">Block & Inline</div>
+        <div class="card-description">Perbedaan elemen block dan inline dalam struktur HTML</div>
+      </a>
+      <a href="html/canvas.html" class="card">
+        <div class="card-icon">🎨</div>
+        <div class="card-title">HTML Canvas</div>
+        <div class="card-description">Membuat grafik dan animasi interaktif dengan HTML5 Canvas</div>
+      </a>
+      <a href="html/charset.html" class="card">
+        <div class="card-icon">🔤</div>
+        <div class="card-title">Character Sets</div>
+        <div class="card-description">Encoding karakter untuk mendukung berbagai bahasa dan simbol</div>
+      </a>
+      <a href="html/class.html" class="card">
+        <div class="card-icon">🏷️</div>
+        <div class="card-title">CSS Classes</div>
+        <div class="card-description">Penggunaan class untuk styling dan JavaScript manipulation</div>
+      </a>
+      <a href="html/colors.html" class="card">
+        <div class="card-icon">🌈</div>
+        <div class="card-title">HTML Colors</div>
+        <div class="card-description">Sistem warna HTML: hex, RGB, HSL, dan named colors</div>
+      </a>
+      <a href="html/comment.html" class="card">
+        <div class="card-icon">💬</div>
+        <div class="card-title">HTML Comments</div>
+        <div class="card-description">Dokumentasi kode dengan komentar yang efektif</div>
+      </a>
+      <a href="html/computercode.html" class="card">
+        <div class="card-icon">💻</div>
+        <div class="card-title">Computer Code</div>
+        <div class="card-description">Menampilkan kode komputer dengan formatting yang tepat</div>
+      </a>
+      <a href="html/div.html" class="card">
+        <div class="card-icon">📦</div>
+        <div class="card-title">HTML Div</div>
+        <div class="card-description">Elemen div sebagai container utama dalam layout HTML</div>
+      </a>
+      <a href="html/drag-and-drop-api.html" class="card">
+        <div class="card-icon">🖱️</div>
+        <div class="card-title">Drag & Drop</div>
+        <div class="card-description">Implementasi fitur drag and drop untuk interaksi user yang intuitif</div>
+      </a>
+      <a href="html/forms.html" class="card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">HTML Forms</div>
+        <div class="card-description">Membuat formulir interaktif untuk input data dari user</div>
+      </a>
+      <a href="html/image.html" class="card">
+        <div class="card-icon">🖼️</div>
+        <div class="card-title">HTML Images</div>
+        <div class="card-description">Optimasi dan implementasi gambar dalam halaman web</div>
+      </a>
+      <a href="html/table.html" class="card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">HTML Tables</div>
+        <div class="card-description">Membuat tabel data yang terstruktur dan responsif</div>
+      </a>
+      <a href="html/video.html" class="card">
+        <div class="card-icon">🎬</div>
+        <div class="card-title">HTML Video</div>
+        <div class="card-description">Embedding video dengan kontrol playback yang lengkap</div>
+      </a>
+      <a href="html/responsive.html" class="card">
+        <div class="card-icon">📱</div>
+        <div class="card-title">Responsive Design</div>
+        <div class="card-description">Membuat layout yang adaptif untuk berbagai ukuran layar</div>
+      </a>
+      <a href="html/seo.html" class="card">
+        <div class="card-icon">🔍</div>
+        <div class="card-title">SEO HTML</div>
+        <div class="card-description">Optimasi HTML untuk mesin pencari dan visibilitas web</div>
+      </a>
+      <a href="html/webstorage.html" class="card">
+        <div class="card-icon">💾</div>
+        <div class="card-title">Web Storage</div>
+        <div class="card-description">Penyimpanan data lokal dengan localStorage dan sessionStorage</div>
+      </a>
     </div>
-
-    <footer>
-      &copy; 2025 HTML Learning Hub | Dibuat oleh Artha 
-    </footer>
   </div>
 
   <script>
+    // Search functionality
     const searchInput = document.getElementById('searchInput');
+    const cardsGrid = document.getElementById('cardsGrid');
     const cards = document.querySelectorAll('.card');
 
-    searchInput.addEventListener('input', function () {
-      const keyword = this.value.toLowerCase();
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      
       cards.forEach(card => {
         const title = card.querySelector('.card-title').textContent.toLowerCase();
-        const desc = card.querySelector('.card-description').textContent.toLowerCase();
-        if (title.includes(keyword) || desc.includes(keyword)) {
+        const description = card.querySelector('.card-description').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
           card.style.display = 'block';
+          card.style.animation = 'fadeInUp 0.3s ease-out';
         } else {
           card.style.display = 'none';
         }
+      });
+    });
+
+    // Enhanced card interactions
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.style.zIndex = '10';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.style.zIndex = '1';
+      });
+    });
+
+    // Smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add loading animation on page load
+    window.addEventListener('load', function() {
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 100);
       });
     });
   </script>
