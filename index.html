@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HTML Learning Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,10 +14,9 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
+      background: linear-gradient(to bottom right, #667eea, #764ba2);
       color: #333;
-      overflow-x: hidden;
+      min-height: 100vh;
     }
 
     .container {
@@ -26,45 +25,44 @@
       padding: 2rem;
     }
 
-    .header {
+    header.header {
       text-align: center;
       margin-bottom: 3rem;
-      animation: fadeInUp 0.8s ease;
+      animation: fadeInUp 1s ease;
     }
 
-    .header h1 {
-      font-size: 3.5rem;
+    header h1 {
+      font-size: 3.2rem;
+      color: #fff;
       font-weight: 800;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      margin-bottom: 1rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
     }
 
-    .header p {
-      font-size: 1.2rem;
+    header p {
+      font-size: 1.1rem;
       color: rgba(255,255,255,0.9);
-      font-weight: 300;
+      font-weight: 400;
+      margin-top: 0.5rem;
     }
 
     .search-container {
       max-width: 500px;
-      margin: 2rem auto;
+      margin: 0 auto 2rem auto;
     }
 
     .search-input {
       width: 100%;
       padding: 1rem 1.5rem;
-      border: none;
       border-radius: 50px;
+      border: none;
       font-size: 1rem;
       background: rgba(255,255,255,0.95);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      outline: none;
-      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
     }
 
     .search-input:focus {
-      transform: translateY(-2px);
+      outline: none;
       box-shadow: 0 12px 40px rgba(0,0,0,0.2);
     }
 
@@ -72,68 +70,62 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
     }
 
     .card {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(15px);
+      background: #fff;
       border-radius: 20px;
       padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       text-decoration: none;
-      color: #333;
-      transition: all 0.4s ease;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      position: relative;
-      overflow: hidden;
-      animation: fadeInUp 1s ease both;
+      color: inherit;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease;
     }
 
     .card:hover {
       transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
     }
 
     .card-icon {
       width: 60px;
       height: 60px;
       background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-size: 1.5rem;
       border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
-      color: white;
+      margin-bottom: 1rem;
     }
 
     .card-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
       color: #2d3748;
+      margin-bottom: 0.3rem;
     }
 
     .card-description {
-      color: #718096;
-      line-height: 1.6;
+      color: #4a5568;
       font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     footer {
       text-align: center;
-      color: white;
-      font-size: 0.85rem;
       padding: 2rem 0;
-      margin-top: 4rem;
-      opacity: 0.6;
+      color: #eee;
+      font-size: 0.85rem;
+      margin-top: 3rem;
     }
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -142,13 +134,18 @@
     }
 
     @media (max-width: 768px) {
-      .header h1 {
-        font-size: 2.5rem;
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <header class="header">
       <h1>HTML Learning Hub</h1>
@@ -156,17 +153,36 @@
     </header>
 
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Cari topik HTML..." id="searchInput" />
+      <input type="text" class="search-input" placeholder="Cari topik HTML..." id="searchInput">
     </div>
 
     <div class="cards-grid" id="cardsGrid">
-      <!-- Semua link card kamu di sini (tidak saya ulang biar rapi) -->
-      <!-- Gunakan link <a href="html/xxx.html" class="card"> seperti sebelumnya -->
-      <!-- Simpan di sini atau paste ulang -->
+      <!-- Semua card kamu disini -->
+      <!-- Contoh -->
+      <a href="html/APIs.html" class="card">
+        <div class="card-icon">🔌</div>
+        <div class="card-title">HTML APIs</div>
+        <div class="card-description">Pelajari berbagai API HTML5 untuk membuat aplikasi web yang interaktif</div>
+      </a>
+
+      <a href="html/attribute.html" class="card">
+        <div class="card-icon">📝</div>
+        <div class="card-title">HTML Attributes</div>
+        <div class="card-description">Memahami atribut HTML untuk mengontrol perilaku elemen</div>
+      </a>
+
+      <a href="html/audio.html" class="card">
+        <div class="card-icon">🎵</div>
+        <div class="card-title">HTML Audio</div>
+        <div class="card-description">Implementasi audio dalam halaman web dengan kontrol yang lengkap</div>
+      </a>
+
+      <!-- Tempel card lainnya dari kode kamu -->
+      <!-- ... -->
     </div>
 
     <footer>
-      &copy; 2025 HTML Learning Hub — Dibuat dengan ❤️ oleh Artha
+      &copy; 2025 HTML Learning Hub | Dibuat oleh Artha 
     </footer>
   </div>
 
@@ -175,13 +191,12 @@
     const cards = document.querySelectorAll('.card');
 
     searchInput.addEventListener('input', function () {
-      const searchTerm = this.value.toLowerCase();
+      const keyword = this.value.toLowerCase();
       cards.forEach(card => {
         const title = card.querySelector('.card-title').textContent.toLowerCase();
-        const description = card.querySelector('.card-description').textContent.toLowerCase();
-        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+        const desc = card.querySelector('.card-description').textContent.toLowerCase();
+        if (title.includes(keyword) || desc.includes(keyword)) {
           card.style.display = 'block';
-          card.style.animation = 'fadeInUp 0.5s ease-out';
         } else {
           card.style.display = 'none';
         }
