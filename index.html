@@ -26,7 +26,7 @@
     </div>
 
     <div class="cards-grid" id="cardsGrid">
-      <a href="html/apis.html" class="card">
+      <a href="html/APIs.html" class="card">
         <div class="card-icon">🔌</div>
         <div class="card-title">HTML APIs</div>
         <div class="card-description">Pelajari berbagai API HTML5 untuk membuat aplikasi web yang interaktif</div>
@@ -128,25 +128,5 @@
       </a>
     </div>
   </div>
-
-  <script>
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.card');
-
-    searchInput.addEventListener('input', function () {
-      const searchTerm = this.value.toLowerCase();
-      cards.forEach(card => {
-        const title = card.querySelector('.card-title').textContent.toLowerCase();
-        const description = card.querySelector('.card-description').textContent.toLowerCase();
-        if (title.includes(searchTerm) || description.includes(searchTerm)) {
-          card.style.display = 'block';
-          card.style.animation = 'fadeInUp 0.5s ease-out';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
