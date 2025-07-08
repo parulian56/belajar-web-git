@@ -1,0 +1,49 @@
+/* Text Shadow
+The text-shadow property adds shadow to text.
+
+In its simplest use, you only specify the horizontal shadow (2px) and the vertical shadow (2px): */
+
+/* Example */
+h1 {
+  text-shadow: 2px 2px;
+}
+
+
+/* Example */
+h1 {
+  text-shadow: 2px 2px red;
+}
+
+/* Example */
+h1 {
+  text-shadow: 2px 2px 5px red;
+}
+
+/* More Text Shadow Examples
+Example 1
+Text-shadow on a white text: */
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+/* Example 2
+Text-shadow with red neon glow: */
+
+h1 {
+  text-shadow: 0 0 3px #ff0000;
+}
+
+/* Example 3
+Text-shadow with red and blue neon glow: */
+
+h1 {
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+
+/* Example 4 */
+h1 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}

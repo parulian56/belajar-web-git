@@ -1,0 +1,30 @@
+/* CSS Units
+CSS has several different units for expressing a length.
+
+Many CSS properties take "length" values, such as width, margin, padding, font-size, etc.
+
+Length is a number followed by a length unit, such as 10px, 2em, etc.
+
+Example
+Set different length values, using px (pixels): */
+
+h1 {
+  font-size: 60px;
+}
+
+p {
+  font-size: 25px;
+  line-height: 50px;
+}
+
+/* Note: A whitespace cannot appear between the number and the unit. However, if the value is 0, the unit can be omitted.
+
+For some CSS properties, negative lengths are allowed.
+
+There are two types of length units: absolute and relative.
+
+Absolute Lengths
+The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.
+
+Absolute length units are not recommended for use on screen, because screen sizes vary so much. However, they can be used if the output medium is known, such as for print layout.
+ */

@@ -1,0 +1,41 @@
+/* Horizontal Alignment
+The text-align property sets the horizontal alignment (like left, right, or center) of the content in <th> or <td>.
+
+By default, the content of <th> elements are center-aligned and the content of <td> elements are left-aligned.
+
+To center-align the content of  <td> elements as well, use text-align: center:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example */
+td {
+  text-align: center;
+}
+/* To left-align the content, force the alignment of <th> elements to be left-aligned, with the text-align: left property:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example */
+th {
+  text-align: left;
+}
+/* Vertical Alignment
+The vertical-align property sets the vertical alignment (like top, bottom, or middle) of the content in <th> or <td>.
+
+By default, the vertical alignment of the content in a table is middle (for both <th> and <td> elements).
+
+The following example sets the vertical text alignment to bottom for <td> elements:
+
+Firstname	Lastname	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example */
+td {
+  height: 50px;
+  vertical-align: bottom;
+}

@@ -1,0 +1,54 @@
+/* <!-- Table Padding
+To control the space between the border and the content in a table, use the padding property on <td> and <th> elements:
+
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example --> */
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+/* <!-- Horizontal Dividers
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Add the border-bottom property to <th> and <td> for horizontal dividers:
+
+Example --> */
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+/* <!-- Hoverable Table
+Use the :hover selector on <tr> to highlight table rows on mouse over:
+
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example --> */
+tr:hover {background-color: coral;}
+
+/* Striped Tables
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows:
+
+Example */
+tr:nth-child(even) {background-color: #f2f2f2;}
+Table Color
+/* The example below specifies the background color and text color of <th> elements:
+
+First Name	Last Name	Savings
+Peter	Griffin	$100
+Lois	Griffin	$150
+Joe	Swanson	$300
+Example */
+th {
+  background-color: #04AA6D;
+  color: white;
+}
