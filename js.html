@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Belajar git/github</title>
+  <title>Belajar JavaScript</title>
   <style>
     * {
       margin: 0;
@@ -475,16 +475,16 @@
 <body>
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">Belajar git/github</a>
+      <a href="#" class="nav-logo">Belajar JavaScript</a>
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="index.html" class="nav-link active" onclick="showSection('html')">Html</a>
+          <a href="index.html" class="nav-link" onclick="showSection('html')">HTML</a>
         </li>
         <li class="nav-item">
-          <a href="css.html" class="nav-link" onclick="showSection('tutorials')">css</a>
+          <a href="css.html" class="nav-link" onclick="showSection('tutorials')">CSS</a>
         </li>
         <li class="nav-item">
-          <a href="js.html" class="nav-link" onclick="showSection('js')">JavaScript</a>
+          <a href="js.html" class="nav-link active" onclick="showSection('js')">JavaScript</a>
         </li>
       </ul>
       <div class="nav-toggle" id="navToggle">
@@ -504,122 +504,292 @@
   <div class="container">
     <div id="homeSection">
       <header class="header">
-        <h1>HTML</h1>
-        <p>Hyper Text Markup Language</p>
+        <h1>JavaScript Fundamentals</h1>
+        <p>Pelajari konsep dasar dan fitur modern JavaScript</p>
       </header>
 
       <div class="search-container">
-        <input type="text" class="search-input" placeholder="Cari topik HTML..." id="searchInput" />
+        <input type="text" class="search-input" placeholder="Cari topik JavaScript..." id="searchInput" />
       </div>
 
       <div class="cards-grid" id="cardsGrid">
-        <a href="html/APIs.html" class="card">
-          <div class="card-icon">🔌</div>
-          <div class="card-title">HTML APIs</div>
-          <div class="card-description">Pelajari berbagai API HTML5 untuk membuat aplikasi web yang interaktif</div>
+        <a href="js/home.html" class="card">
+          <div class="card-icon">🏠</div>
+          <div class="card-title">Pengenalan JavaScript</div>
+          <div class="card-description">Mulai perjalanan belajar JavaScript dengan dasar-dasar yang penting</div>
         </a>
-        <a href="html/attribute.html" class="card">
-          <div class="card-icon">📝</div>
-          <div class="card-title">HTML Attributes</div>
-          <div class="card-description">Memahami atribut HTML untuk mengontrol perilaku elemen</div>
-        </a>
-        <a href="html/audio.html" class="card">
-          <div class="card-icon">🎵</div>
-          <div class="card-title">HTML Audio</div>
-          <div class="card-description">Implementasi audio dalam halaman web dengan kontrol yang lengkap</div>
-        </a>
-        <a href="html/basic.html" class="card">
+        <a href="js/arrays.html" class="card">
           <div class="card-icon">📚</div>
-          <div class="card-title">HTML Basics</div>
-          <div class="card-description">Dasar-dasar HTML untuk pemula yang ingin memulai journey web development</div>
+          <div class="card-title">Array JavaScript</div>
+          <div class="card-description">Pelajari cara bekerja dengan array dan metode-metode pentingnya</div>
         </a>
-        <a href="html/blockandinline.html" class="card">
-          <div class="card-icon">🧱</div>
-          <div class="card-title">Block & Inline</div>
-          <div class="card-description">Perbedaan elemen block dan inline dalam struktur HTML</div>
+        <a href="js/arithmetic.html" class="card">
+          <div class="card-icon">➕</div>
+          <div class="card-title">Operasi Aritmatika</div>
+          <div class="card-description">Pahami operator matematika dan cara penggunaannya dalam JavaScript</div>
         </a>
-        <a href="html/canvas.html" class="card">
-          <div class="card-icon">🎨</div>
-          <div class="card-title">HTML Canvas</div>
-          <div class="card-description">Membuat grafik dan animasi interaktif dengan HTML5 Canvas</div>
+        <a href="js/AJAX-ASP.html" class="card">
+          <div class="card-icon">🔄</div>
+          <div class="card-title">AJAX dengan ASP</div>
+          <div class="card-description">Pelajari cara membuat permintaan AJAX ke server ASP</div>
         </a>
-        <a href="html/charset.html" class="card">
-          <div class="card-icon">🔤</div>
-          <div class="card-title">Character Sets</div>
-          <div class="card-description">Encoding karakter untuk mendukung berbagai bahasa dan simbol</div>
+        <a href="js/AJAX-DATABASE.html" class="card">
+          <div class="card-icon">🗃️</div>
+          <div class="card-title">AJAX dengan Database</div>
+          <div class="card-description">Gunakan AJAX untuk berinteraksi dengan database secara dinamis</div>
         </a>
-        <a href="html/class.html" class="card">
-          <div class="card-icon">🏷️</div>
-          <div class="card-title">CSS Classes</div>
-          <div class="card-description">Penggunaan class untuk styling dan JavaScript manipulation</div>
-        </a>
-        <a href="html/colors.html" class="card">
-          <div class="card-icon">🌈</div>
-          <div class="card-title">HTML Colors</div>
-          <div class="card-description">Sistem warna HTML: hex, RGB, HSL, dan named colors</div>
-        </a>
-        <a href="html/comment.html" class="card">
-          <div class="card-icon">💬</div>
-          <div class="card-title">HTML Comments</div>
-          <div class="card-description">Dokumentasi kode dengan komentar yang efektif</div>
-        </a>
-        <a href="html/computercode.html" class="card">
-          <div class="card-icon">💻</div>
-          <div class="card-title">Computer Code</div>
-          <div class="card-description">Menampilkan kode komputer dengan formatting yang tepat</div>
-        </a>
-        <a href="html/div.html" class="card">
-          <div class="card-icon">📦</div>
-          <div class="card-title">HTML Div</div>
-          <div class="card-description">Elemen div sebagai container utama dalam layout HTML</div>
-        </a>
-        <a href="html/drag-and-drop-api.html" class="card">
-          <div class="card-icon">🖱️</div>
-          <div class="card-title">Drag & Drop</div>
-          <div class="card-description">Implementasi fitur drag and drop untuk interaksi user yang intuitif</div>
-        </a>
-        <a href="html/forms.html" class="card">
-          <div class="card-icon">📋</div>
-          <div class="card-title">HTML Forms</div>
-          <div class="card-description">Membuat formulir interaktif untuk input data dari user</div>
-        </a>
-        <a href="html/image.html" class="card">
-          <div class="card-icon">🖼️</div>
-          <div class="card-title">HTML Images</div>
-          <div class="card-description">Optimasi dan implementasi gambar dalam halaman web</div>
-        </a>
-        <a href="html/table.html" class="card">
-          <div class="card-icon">📊</div>
-          <div class="card-title">HTML Tables</div>
-          <div class="card-description">Membuat tabel data yang terstruktur dan responsif</div>
-        </a>
-        <a href="html/video.html" class="card">
-          <div class="card-icon">🎬</div>
-          <div class="card-title">HTML Video</div>
-          <div class="card-description">Embedding video dengan kontrol playback yang lengkap</div>
-        </a>
-        <a href="html/responsive.html" class="card">
+        <a href="js/AJAX-application.html" class="card">
           <div class="card-icon">📱</div>
-          <div class="card-title">Responsive Design</div>
-          <div class="card-description">Membuat layout yang adaptif untuk berbagai ukuran layar</div>
+          <div class="card-title">Aplikasi AJAX</div>
+          <div class="card-description">Bangun aplikasi web modern dengan teknik AJAX</div>
         </a>
-        <a href="html/seo.html" class="card">
-          <div class="card-icon">🔍</div>
-          <div class="card-title">SEO HTML</div>
-          <div class="card-description">Optimasi HTML untuk mesin pencari dan visibilitas web</div>
+        <a href="js/AJAX-intro.html" class="card">
+          <div class="card-icon">🔌</div>
+          <div class="card-title">Pengenalan AJAX</div>
+          <div class="card-description">Pahami konsep dasar AJAX dan cara kerjanya</div>
         </a>
-        <a href="html/webstorage.html" class="card">
-          <div class="card-icon">💾</div>
-          <div class="card-title">Web Storage</div>
-          <div class="card-description">Penyimpanan data lokal dengan localStorage dan sessionStorage</div>
+        <a href="js/AJAX-PHP.html" class="card">
+          <div class="card-icon">🐘</div>
+          <div class="card-title">AJAX dengan PHP</div>
+          <div class="card-description">Integrasikan AJAX dengan PHP untuk aplikasi dinamis</div>
         </a>
+        <a href="js/AJAX-request.html" class="card">
+          <div class="card-icon">📨</div>
+          <div class="card-title">Permintaan AJAX</div>
+          <div class="card-description">Pelajari cara membuat berbagai jenis permintaan AJAX</div>
+        </a>
+        <a href="js/AJAX-XML-file.html" class="card">
+          <div class="card-icon">📄</div>
+          <div class="card-title">AJAX dengan XML</div>
+          <div class="card-description">Baca dan proses file XML menggunakan AJAX</div>
+        </a>
+        <a href="js/AJAX-XMLhttp.html" class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">XMLHttpRequest</div>
+          <div class="card-description">Pahami objek XMLHttpRequest untuk komunikasi dengan server</div>
+        </a>
+        <a href="js/arrowfunction.html" class="card">
+          <div class="card-icon">🏹</div>
+          <div class="card-title">Arrow Function</div>
+          <div class="card-description">Pelajari sintaks arrow function yang ringkas dalam ES6</div>
+        </a>
+        <a href="js/assigntment.html" class="card">
+          <div class="card-icon">🔄</div>
+          <div class="card-title">Operator Penugasan</div>
+          <div class="card-description">Pahami berbagai operator penugasan dalam JavaScript</div>
+        </a>
+        <a href="js/asyincronus.html" class="card">
+          <div class="card-icon">⏳</div>
+          <div class="card-title">Pemrograman Asinkron</div>
+          <div class="card-description">Pelajari konsep asinkron dalam JavaScript</div>
+        </a>
+        <a href="js/async-await.html" class="card">
+          <div class="card-icon">⏱️</div>
+          <div class="card-title">Async/Await</div>
+          <div class="card-description">Gunakan async/await untuk kode asinkron yang lebih bersih</div>
+        </a>
+        <a href="js/best-practices.html" class="card">
+          <div class="card-icon">✅</div>
+          <div class="card-title">Best Practices</div>
+          <div class="card-description">Praktik terbaik dalam menulis kode JavaScript</div>
+        </a>
+        <a href="js/biglnt.html" class="card">
+          <div class="card-icon">🔢</div>
+          <div class="card-title">BigInt</div>
+          <div class="card-description">Bekerja dengan bilangan besar menggunakan BigInt</div>
+        </a>
+        <a href="js/bitwise.html" class="card">
+          <div class="card-icon">🔢</div>
+          <div class="card-title">Operator Bitwise</div>
+          <div class="card-description">Pelajari operator bitwise dan penggunaannya</div>
+        </a>
+        <a href="js/booleans.html" class="card">
+          <div class="card-icon">✔️</div>
+          <div class="card-title">Boolean</div>
+          <div class="card-description">Pahami tipe data boolean dan operasinya</div>
+        </a>
+        <a href="js/break.html" class="card">
+          <div class="card-icon">⏹️</div>
+          <div class="card-title">Break & Continue</div>
+          <div class="card-description">Kontrol alur loop dengan break dan continue</div>
+        </a>
+        <a href="js/callsback.html" class="card">
+          <div class="card-icon">📞</div>
+          <div class="card-title">Callback Functions</div>
+          <div class="card-description">Pahami konsep callback dalam JavaScript</div>
+        </a>
+        <a href="js/class-inheritance.html" class="card">
+          <div class="card-icon">🧬</div>
+          <div class="card-title">Class Inheritance</div>
+          <div class="card-description">Implementasikan pewarisan dalam class JavaScript</div>
+        </a>
+        <a href="js/class-intro.html" class="card">
+          <div class="card-icon">🏛️</div>
+          <div class="card-title">Class JavaScript</div>
+          <div class="card-description">Pelajari sintaks class dalam JavaScript modern</div>
+        </a>
+        <a href="js/class-static.html" class="card">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Static Methods</div>
+          <div class="card-description">Pahami metode statis dalam class JavaScript</div>
+        </a>
+        <a href="js/classes.html" class="card">
+          <div class="card-icon">🏛️</div>
+          <div class="card-title">Class Lanjutan</div>
+          <div class="card-description">Eksplorasi fitur-fitur lanjutan class JavaScript</div>
+        </a>
+        <a href="js/coment.html" class="card">
+          <div class="card-icon">💬</div>
+          <div class="card-title">Komentar Kode</div>
+          <div class="card-description">Cara menulis komentar yang efektif dalam JavaScript</div>
+        </a>
+        <a href="js/comparisons.html" class="card">
+          <div class="card-icon">⚖️</div>
+          <div class="card-title">Operator Perbandingan</div>
+          <div class="card-description">Pelajari berbagai operator perbandingan dalam JavaScript</div>
+        </a>
+        <a href="js/const.html" class="card">
+          <div class="card-icon">🔒</div>
+          <div class="card-title">Const & Let</div>
+          <div class="card-description">Pahami perbedaan const dan let dalam deklarasi variabel</div>
+        </a>
+        <a href="js/cookies.html" class="card">
+          <div class="card-icon">🍪</div>
+          <div class="card-title">Cookies</div>
+          <div class="card-description">Bekerja dengan cookies dalam JavaScript</div>
+        </a>
+        <a href="js/data-type.html" class="card">
+          <div class="card-icon">🔤</div>
+          <div class="card-title">Tipe Data</div>
+          <div class="card-description">Pelajari berbagai tipe data dalam JavaScript</div>
+        </a>
+        <a href="js/dates.html" class="card">
+          <div class="card-icon">📅</div>
+          <div class="card-title">Objek Date</div>
+          <div class="card-description">Bekerja dengan tanggal dan waktu dalam JavaScript</div>
+        </a>
+         <a href="js/DOMintro.html" class="card">
+          <div class="card-icon">🌳</div>
+          <div class="card-title">Pengenalan DOM</div>
+          <div class="card-description">Pahami Document Object Model dalam JavaScript</div>
+        </a>
+        <a href="js/eror.html" class="card">
+          <div class="card-icon">❌</div>
+          <div class="card-title">Penanganan Error</div>
+          <div class="card-description">Cara menangani error dalam JavaScript</div>
+        </a>
+        <a href="js/events.html" class="card">
+          <div class="card-icon">🎪</div>
+          <div class="card-title">Event Handling</div>
+          <div class="card-description">Pelajari cara menangani event dalam JavaScript</div>
+        </a>
+        <a href="js/EDGE.html" class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">JavaScript di Edge</div>
+          <div class="card-description">Fitur JavaScript khusus untuk Microsoft Edge</div>
+        </a>
+        <a href="js/funtion.html" class="card">
+          <div class="card-icon">📦</div>
+          <div class="card-title">Fungsi JavaScript</div>
+          <div class="card-description">Pelajari cara membuat dan menggunakan fungsi</div>
+        </a>
+        <a href="js/history.html" class="card">
+          <div class="card-icon">⏮️</div>
+          <div class="card-title">History API</div>
+          <div class="card-description">Manipulasi history browser dengan JavaScript</div>
+        </a>
+        <a href="js/js2009.html" class="card">
+          <div class="card-icon">📜</div>
+          <div class="card-title">ES5 (2009)</div>
+          <div class="card-description">Fitur-fitur penting yang diperkenalkan di ES5</div>
+        </a>
+        <a href="js/loop-for-in.html" class="card">
+          <div class="card-icon">🔄</div>
+          <div class="card-title">Loop For...In</div>
+          <div class="card-description">Iterasi properti objek dengan for...in</div>
+        </a>
+        <a href="js/maps.html" class="card">
+          <div class="card-icon">🗺️</div>
+          <div class="card-title">Map & Set</div>
+          <div class="card-description">Struktur data Map dan Set dalam JavaScript</div>
+        </a>
+        <a href="js/math.html" class="card">
+          <div class="card-icon">🧮</div>
+          <div class="card-title">Objek Math</div>
+          <div class="card-description">Fungsi-fungsi matematika dalam JavaScript</div>
+        </a>
+        <a href="js/mistake.html" class="card">
+          <div class="card-icon">⚠️</div>
+          <div class="card-title">Kesalahan Umum</div>
+          <div class="card-description">Hindari kesalahan umum dalam JavaScript</div>
+        </a>
+        <a href="js/modules.html" class="card">
+          <div class="card-icon">📦</div>
+          <div class="card-title">Modul JavaScript</div>
+          <div class="card-description">Organisasi kode dengan sistem modul</div>
+        </a>
+        <a href="js/navigator.html" class="card">
+          <div class="card-icon">🧭</div>
+          <div class="card-title">Navigator Object</div>
+          <div class="card-description">Akses informasi browser dengan navigator</div>
+        </a>
+        <a href="js/number.html" class="card">
+          <div class="card-icon">🔢</div>
+          <div class="card-title">Objek Number</div>
+          <div class="card-description">Metode dan properti untuk bekerja dengan angka</div>
+        </a>
+        <a href="js/object.html" class="card">
+          <div class="card-icon">🧱</div>
+          <div class="card-title">Objek JavaScript</div>
+          <div class="card-description">Pahami cara bekerja dengan objek dalam JavaScript</div>
+        </a>
+        <a href="js/operator.html" class="card">
+          <div class="card-icon">➕</div>
+          <div class="card-title">Operator JavaScript</div>
+          <div class="card-description">Pelajari berbagai operator dalam JavaScript</div>
+        </a>
+        <a href="js/output.html" class="card">
+          <div class="card-icon">📤</div>
+          <div class="card-title">Output JavaScript</div>
+          <div class="card-description">Cara menampilkan output dalam JavaScript</div>
+        </a>
+        <a href="js/performance.html" class="card">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Optimasi Performa</div>
+          <div class="card-description">Teknik optimasi performa kode JavaScript</div>
+        </a>
+        <a href="js/popup-alert.html" class="card">
+          <div class="card-icon">💬</div>
+          <div class="card-title">Popup & Alert</div>
+          <div class="card-description">Buat dialog interaktif dengan pengguna</div>
+        </a>
+        <a href="js/precedence.html" class="card">
+          <div class="card-icon">🧮</div>
+          <div class="card-title">Precedence Operator</div>
+          <div class="card-description">Urutan evaluasi operator dalam JavaScript</div>
+        </a>
+        <a href="js/promise.html" class="card">
+          <div class="card-icon">🤝</div>
+          <div class="card-title">Promise</div>
+          <div class="card-description">Pahami konsep Promise untuk operasi asinkron</div>
+        </a>
+        <a href="js/web-APIs.html" class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">Web APIs</div>
+          <div class="card-description">Eksplorasi berbagai Web API yang tersedia</div>
+        </a>
+        <a href="js/windows.html" class="card">
+          <div class="card-icon">🪟</div>
+          <div class="card-title">Window Object</div>
+          <div class="card-description">Bekerja dengan objek window dalam JavaScript</div>
+        </a>       
       </div>
     </div>
 
     <div id="tutorialsSection" style="display: none;">
       <header class="header">
-        <h1>Tutorial HTML</h1>
-        <p>Panduan step-by-step untuk menguasai HTML</p>
+        <h1>Tutorial JavaScript</h1>
+        <p>Panduan step-by-step untuk menguasai JavaScript</p>
       </header>
       <div style="text-align: center; padding: 4rem 2rem;">
         <h2 style="color: #cccccc; margin-bottom: 1rem;">Coming Soon</h2>
@@ -629,14 +799,14 @@
 
     <div id="aboutSection" style="display: none;">
       <header class="header">
-        <h1>Tentang HTML Hub</h1>
-        <p>Platform pembelajaran HTML yang komprehensif</p>
+        <h1>Tentang JavaScript Hub</h1>
+        <p>Platform pembelajaran JavaScript yang komprehensif</p>
       </header>
       <div style="max-width: 800px; margin: 0 auto; padding: 2rem;">
         <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
           <h3 style="color: #ffffff; margin-bottom: 1rem;">Misi Kami</h3>
           <p style="color: #cccccc; line-height: 1.6; margin-bottom: 1.5rem;">
-            HTML Learning Hub adalah platform pembelajaran yang dirancang khusus untuk membantu developer pemula hingga mahir menguasai HTML dengan pendekatan yang praktis dan interaktif.
+            JavaScript Learning Hub adalah platform pembelajaran yang dirancang khusus untuk membantu developer pemula hingga mahir menguasai JavaScript dengan pendekatan yang praktis dan interaktif.
           </p>
           <h3 style="color: #ffffff; margin-bottom: 1rem;">Fitur Unggulan</h3>
           <ul style="color: #cccccc; line-height: 1.6; list-style: none; padding-left: 0;">
